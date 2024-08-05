@@ -6,7 +6,7 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 14:26:03 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/08/05 15:48:15 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/08/05 20:30:16 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,37 @@
 #include "ft_printf.h"
 
 
+int main() {
+    int num = 42;
+    char character = 'A';
+    char *string = "Hello, world!";
+
+    int ret_printf, ret_ft_printf;
+
+    printf("Testing printf:\n");
+    ret_printf = printf("Integer: %d\n", num);
+    printf("Return value of printf: %d\n", ret_printf);
+
+    ret_printf = printf("Character: %c\n", character);
+    printf("Return value of printf: %d\n", ret_printf);
+
+    ret_printf = printf("String: %s\n", string);
+    printf("Return value of printf: %d\n", ret_printf);
+
+    printf("\nTesting ft_printf:\n");
+    ret_ft_printf = ft_printf("Integer: %d\n", num);
+    ft_printf("Return value of ft_printf: %d\n", ret_ft_printf);
+
+    ret_ft_printf = ft_printf("Character: %c\n", character);
+    ft_printf("Return value of ft_printf: %d\n", ret_ft_printf);
+
+    ret_ft_printf = ft_printf("String: %s\n", string);
+    ft_printf("Return value of ft_printf: %d\n", ret_ft_printf);
+
+    return 0;
+}
+
+/*
 int main(void)
 {
 	char	*word;
@@ -236,12 +267,12 @@ int main(void)
 	total_verdadero = printf("Hola \\n \\t \\r\n");
 	printf("El size verdadero es: %d\n\n", total_verdadero);
 	
-	/*/ Especificadores incorrectos
+	// Especificadores incorrectos
 	ft_printf("Probando especificador incorrecto %%q:\n");
 	total_format = ft_printf("Hola %q\n", 42);
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola %q\n", 42);
-	printf("El size verdadero es: %d\n\n", total_verdadero);//*/
+	printf("El size verdadero es: %d\n\n", total_verdadero);//
 
 	// Combinaciones complejas
 	ft_printf("Probando combinación compleja:\n");
@@ -258,4 +289,4 @@ int main(void)
 	total_verdadero = printf("Resultado: %s\n", word);
 	printf("El size verdadero es: %d\n\n", total_verdadero);
 	return (0);
-}
+}*/
