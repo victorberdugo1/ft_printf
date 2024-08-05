@@ -6,14 +6,18 @@
 #    By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 14:20:04 by vberdugo          #+#    #+#              #
-#    Updated: 2024/08/05 15:27:11 by vberdugo         ###   ########.fr        #
+#    Updated: 2024/08/05 15:39:14 by vberdugo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+
 LIBFTNAME = libft.a
+
 CC = cc
+
 CFLAGS = -Wall -Werror -Wextra
+
 LIBFTDIR = ./libft
 
 SRCS = 	ft_printf.c

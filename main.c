@@ -6,7 +6,7 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 14:26:03 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/08/05 11:20:17 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:48:15 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int main(void)
 	
 	// Pruebas de cadenas
 	ft_printf("Probando %%s con cadena básica:\n");
-	word = "Patri";
+	word = "Cadena";
 	total_format = ft_printf("Hola %s\n", word);
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola %s\n", word);
