@@ -6,13 +6,16 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 14:27:01 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/07/28 14:33:56 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/08/05 12:38:08 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-int ft_printf(char const *, ...);
+#include <stdarg.h>
+#include "libft/libft.h"
+
+int ft_printf(char const *format, ...);
 
 #endif

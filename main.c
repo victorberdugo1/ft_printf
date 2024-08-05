@@ -6,7 +6,7 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 14:26:03 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/07/28 14:34:30 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/08/05 11:20:17 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int main(void)
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("%c\n", letter);
 	printf("El size verdadero es: %d\n\n", total_verdadero);
+	
 	// Pruebas de cadenas
 	ft_printf("Probando %%s con cadena básica:\n");
 	word = "Patri";
@@ -74,6 +75,7 @@ int main(void)
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("%s\n", word);
 	printf("El size verdadero es: %d\n\n", total_verdadero);
+	
 	// Pruebas de punteros
 	ft_printf("Probando %%p con dirección de variable:\n");
 	value = 42;
@@ -87,6 +89,7 @@ int main(void)
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola %p\n", NULL);
 	printf("El size verdadero es: %d\n\n", total_verdadero);
+	
 	// Pruebas de enteros
 	ft_printf("Probando %%d con entero positivo:\n");
 	entero = 42;
@@ -110,6 +113,7 @@ int main(void)
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola %d\n", INT_MIN);
 	printf("El size verdadero es: %d\n\n", total_verdadero);
+	
 	// Pruebas de enteros sin signo
 	ft_printf("Probando %%u con entero sin signo positivo:\n");
 	unsign = 42;
@@ -122,6 +126,7 @@ int main(void)
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola %u\n", UINT_MAX);
 	printf("El size verdadero es: %d\n\n", total_verdadero);
+	
 	// Pruebas de hexadecimales
 	ft_printf("Probando %%x con número positivo:\n");
 	num = 42;
@@ -164,6 +169,7 @@ int main(void)
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola %u\n", 0);
 	printf("El size verdadero es: %d\n\n", total_verdadero);
+	
 	// Pruebas de valores NULL
 	ft_printf("Probando NULL con p:\n");
 	total_format = ft_printf("Hola %p\n", NULL);
@@ -175,8 +181,9 @@ int main(void)
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola %s\n", (char *)NULL);
 	printf("El size verdadero es: %d\n\n", total_verdadero);
+	
 	// Pruebas de precisión
-/*	ft_printf("Probando %.5d con precisión 5:\n");
+	ft_printf("Probando %.5d con precisión 5:\n");
 	total_format = ft_printf("Hola %.5d\n", 42);
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola %.5d\n", 42);
@@ -186,6 +193,7 @@ int main(void)
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola %.2s\n", "Patri");
 	printf("El size verdadero es: %d\n\n", total_verdadero);
+	
 	// Pruebas de anchura
 	ft_printf("Probando %5d con anchura 5:\n");
 	total_format = ft_printf("Hola %5d\n", 42);
@@ -197,6 +205,7 @@ int main(void)
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola %10.5s\n", "Patri");
 	printf("El size verdadero es: %d\n\n", total_verdadero);
+	
 	// Flotantes
 	ft_printf("Probando %%f con flotante positivo:\n");
 	decimal = 3.14159;
@@ -214,7 +223,7 @@ int main(void)
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola %10.2f\n", decimal);
 	printf("El size verdadero es: %d\n\n", total_verdadero);
-*/
+
 	// Caracteres especiales
 	ft_printf("Probando caracteres especiales:\n");
 	total_format = ft_printf("Hola \t Mundo\n");
@@ -226,19 +235,21 @@ int main(void)
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola \\n \\t \\r\n");
 	printf("El size verdadero es: %d\n\n", total_verdadero);
-/*	// Especificadores incorrectos
+	
+	/*/ Especificadores incorrectos
 	ft_printf("Probando especificador incorrecto %%q:\n");
 	total_format = ft_printf("Hola %q\n", 42);
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola %q\n", 42);
-	printf("El size verdadero es: %d\n\n", total_verdadero);
-*/
+	printf("El size verdadero es: %d\n\n", total_verdadero);//*/
+
 	// Combinaciones complejas
 	ft_printf("Probando combinación compleja:\n");
 	total_format = ft_printf("Número: %d, Cadena: %s, Hex: %x, \n", 42, "Texto", 255);
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Número: %d, Cadena: %s, Hex: %x, \n", 42, "Texto", 255);
 	printf("El size verdadero es: %d\n\n", total_verdadero);
+	
 	// Pruebas adicionales de memoria y límites
 	ft_printf("Probando cadena larga y compleja:\n");
 	word = "Esta es una prueba con una cadena extremadamente larga para verificar cómo maneja printf los casos de memoria y los límites de su implementación. Queremos asegurarnos de que no hay problemas con la gestión de memoria y que el comportamiento es consistente.";
