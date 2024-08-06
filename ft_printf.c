@@ -6,14 +6,24 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 14:27:23 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/08/06 18:03:52 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/08/06 21:42:46 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
 
-int	ft_putnum_hex(unsigned long num)
+void	ft_strtoupper(char *str)
+{
+	while (*str)
+	{
+		if (*str >= 'a' && *str <= 'f')
+			*str -= 32;
+		str++;
+	}
+}
+
+int	ft_putnum_hex(unsigned long num, int uppercase)
 {
 	char	*hex_digits;
 	char	buffer[16];
@@ -21,13 +31,12 @@ int	ft_putnum_hex(unsigned long num)
 	int		count;
 
 	hex_digits = "0123456789abcdef";
+	if (uppercase)
+		ft_strtoupper(hex_digits);
 	i = 0;
 	count = 0;
 	if (num == 0)
-	{
-		write(1, "0", 1);
-		return (1);
-	}
+		return (write(1, "0", 1), 1);
 	while (num != 0)
 	{
 		buffer[i++] = hex_digits[num % 16];
@@ -58,7 +67,7 @@ int	ft_print_ptr(void *p)
 	{
 		write(1, "0x", 2);
 		count += 2;
-		count += ft_putnum_hex(addr);
+		count += ft_putnum_hex(addr, 0);
 	}
 	return (count);
 }
@@ -83,9 +92,11 @@ int	handle_format(const char **format, va_list args)
 	else if (**format == 'd' || **format == 'i' )
 		count += ft_putnbr_fd(va_arg(args, int), 1);
 	else if (**format == 'u')
-		count += ft_putnbr_fd(va_arg(args, int), 1);
-	else if (**format == 'x' || **format == 'X' )
-		count += ft_putnbr_fd(va_arg(args, int), 1);
+		count += ft_putnbr_fd(va_arg(args, unsigned int), 1);
+	else if (**format == 'x')
+		count += ft_putnum_hex(va_arg(args, unsigned int), 0);
+	else if (**format == 'X')
+		count += ft_putnum_hex(va_arg(args, unsigned int), 1);
 	return (count);
 }
 
