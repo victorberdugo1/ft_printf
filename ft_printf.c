@@ -6,16 +6,16 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 14:27:23 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/08/06 15:50:19 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:30:25 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int handle_format(const char **format, va_list args)
+int	handle_format(const char **format, va_list args)
 {
-	int count;
-	char *str ;
+	int		count;
+	char	*str ;
 
 	count = 0;
 	(*format)++;
@@ -29,7 +29,7 @@ int handle_format(const char **format, va_list args)
 		ft_putstr_fd(str, 1);
 		count += ft_strlen(str);
 	}
-	return count;
+	return (count);
 }
 
 int	ft_printf(char const *format, ...)
