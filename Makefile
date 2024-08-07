@@ -6,7 +6,7 @@
 #    By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 14:20:04 by vberdugo          #+#    #+#              #
-#    Updated: 2024/08/07 16:24:36 by vberdugo         ###   ########.fr        #
+#    Updated: 2024/08/07 18:31:47 by vberdugo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 LIBFTDIR = ./libft
 
-SRCS = 	ft_printf.c
+SRCS = 	ft_printf.c	ft_printf_utils.c 
 
 OBJS = $(SRCS:.c=.o)
 

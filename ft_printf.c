@@ -6,23 +6,12 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 14:27:23 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/08/07 16:06:38 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/08/07 18:30:53 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
-
-int	printstr(char *str)
-{
-	int	count;
-
-	if (str == NULL)
-		str = "(null)";
-	count = ft_strlen(str);
-	write(1, str, count);
-	return (count);
-}
 
 int	ft_putunbr_fd(unsigned int n, int fd)
 {
