@@ -6,7 +6,7 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 14:27:23 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/08/07 18:30:53 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/08/07 22:02:31 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,13 +121,16 @@ int	ft_printf(char const *format, ...)
 	{
 		if (*format == '%')
 		{
-			count += handle_format(&format, args);
+			if (*(format + 1) == '%')
+			{
+				count += ft_putchar_fd('%', 1);
+				format++;
+			}
+			else
+				count += handle_format(&format, args);
 		}
 		else
-		{
-			ft_putchar_fd(*format, 1);
-			count++;
-		}
+			count += ft_putchar_fd(*format, 1);
 		format++;
 	}
 	va_end(args);

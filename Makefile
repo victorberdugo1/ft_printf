@@ -6,47 +6,47 @@
 #    By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 14:20:04 by vberdugo          #+#    #+#              #
-#    Updated: 2024/08/07 18:31:47 by vberdugo         ###   ########.fr        #
+#    Updated: 2024/08/07 21:45:31 by victor           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-LIBFTNAME = libft.a
-
-CC = cc
-
-CFLAGS = -Wall -Werror -Wextra
-
-LIBFTDIR = ./libft
-
-SRCS = 	ft_printf.c	ft_printf_utils.c 
-
-OBJS = $(SRCS:.c=.o)
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
 INCLUDE = libft/libft.h ft_printf.h
 
+SRC = ft_printf.c ft_printf_utils.c
+
+OBJ = $(SRC:.c=.o)
+
+CC = gcc
+
+CFLAGS = -Wall -Wextra -Werror
+
 all: $(NAME)
 
-$(LIBFTDIR)/$(LIBFTNAME):
-	@make -C $(LIBFTDIR)
+$(NAME): $(LIBFT) $(OBJ)
+	ar rcs $@ $^
+	@cp $(LIBFT) .
+	@mv libft.a $(NAME)
+	@ar -r $(NAME) $(OBJ)
 
-makelibft: $(LIBFTDIR)/$(LIBFTNAME)	
-	@cp $(LIBFTDIR)/$(LIBFTNAME) .
-	@mv $(LIBFTNAME) $(NAME)
+$(LIBFT):
+	@make -C $(LIBFT_DIR)
 
-$(NAME): makelibft $(OBJS)
-	@ar -r $(NAME) $(OBJS)
-
-%.o: %.c $(INCLUDE)
-	$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c ft_printf.h
+	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -c $< -o $@
 
 clean:
-	@rm -f $(OBJS)
-	@cd $(LIBFTDIR) && make clean
-	
+	rm -f $(OBJ) $(TEST_OBJ)
+	$(MAKE) -C $(LIBFT_DIR) clean
+
 fclean: clean
-	@rm -f $(NAME)
-	@cd $(LIBFTDIR) && make fclean
-	
+	rm -f $(NAME) test_program
+	$(MAKE) -C $(LIBFT_DIR) fclean
+
 re: fclean all
+
+.PHONY: all clean fclean re test

@@ -6,7 +6,7 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 14:26:03 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/08/07 15:24:31 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/08/07 22:07:18 by victor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include <limits.h>
 #include <float.h>
 #include "ft_printf.h"
+
+void TEST(int num, int result_ft, int result_printf) {
+    printf("TEST %d:\n", num);
+    printf("ft_printf result: %d\n", result_ft);
+    printf("printf result: %d\n", result_printf);
+    printf("\n");
+}
 
 int main(void)
 {
@@ -256,5 +263,37 @@ int main(void)
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Resultado: %s\n", word);
 	printf("El size verdadero es: %d\n\n", total_verdadero);
+
+
+
+	// Pruebas para %%
+    total_format = ft_printf(" %% ");
+    total_verdadero = printf(" %% ");
+    TEST(1, total_format, total_verdadero);
+
+    total_format = ft_printf(" %%%% ");
+    total_verdadero = printf(" %%%% ");
+    TEST(2, total_format, total_verdadero);
+
+    total_format = ft_printf(" %% %% %% ");
+    total_verdadero = printf(" %% %% %% ");
+    TEST(3, total_format, total_verdadero);
+
+    total_format = ft_printf(" %%  %%  %% ");
+    total_verdadero = printf(" %%  %%  %% ");
+    TEST(4, total_format, total_verdadero);
+
+    total_format = ft_printf(" %%   %%   %% ");
+    total_verdadero = printf(" %%   %%   %% ");
+    TEST(5, total_format, total_verdadero);
+
+    total_format = ft_printf("%%");
+    total_verdadero = printf("%%");
+    TEST(6, total_format, total_verdadero);
+
+    total_format = ft_printf("%% %%");
+    total_verdadero = printf("%% %%");
+    TEST(7, total_format, total_verdadero);
+
 	return (0);
 }
