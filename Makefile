@@ -6,7 +6,7 @@
 #    By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/05 14:20:04 by vberdugo          #+#    #+#              #
-#    Updated: 2024/08/05 15:39:14 by vberdugo         ###   ########.fr        #
+#    Updated: 2024/08/07 16:24:36 by vberdugo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,15 +24,22 @@ SRCS = 	ft_printf.c
 
 OBJS = $(SRCS:.c=.o)
 
+INCLUDE = libft/libft.h ft_printf.h
+
 all: $(NAME)
 
-makelibft:
+$(LIBFTDIR)/$(LIBFTNAME):
 	@make -C $(LIBFTDIR)
+
+makelibft: $(LIBFTDIR)/$(LIBFTNAME)	
 	@cp $(LIBFTDIR)/$(LIBFTNAME) .
 	@mv $(LIBFTNAME) $(NAME)
 
 $(NAME): makelibft $(OBJS)
 	@ar -r $(NAME) $(OBJS)
+
+%.o: %.c $(INCLUDE)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJS)

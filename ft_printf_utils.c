@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/28 14:27:01 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/08/07 16:05:53 by vberdugo         ###   ########.fr       */
+/*   Created: 2024/08/07 16:03:05 by vberdugo          #+#    #+#             */
+/*   Updated: 2024/08/07 16:04:12 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+int	printstr(char *str)
+{
+	int	count;
 
-# include <stdarg.h>
-# include "libft/libft.h"
-
-int	ft_printf(char const *format, ...);
-int	printstr(char *str);
-
-#endif
+	if (str == NULL)
+		str = "(null)";
+	count = strlen(str);
+	write(1, str, count);
+	return (count);
+}

@@ -6,33 +6,55 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 14:27:23 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/08/06 21:42:46 by victor           ###   ########.fr       */
+/*   Updated: 2024/08/07 16:06:38 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
 
-void	ft_strtoupper(char *str)
+int	printstr(char *str)
 {
-	while (*str)
+	int	count;
+
+	if (str == NULL)
+		str = "(null)";
+	count = ft_strlen(str);
+	write(1, str, count);
+	return (count);
+}
+
+int	ft_putunbr_fd(unsigned int n, int fd)
+{
+	char	buffer[10];
+	int		i;
+	int		count;
+
+	i = 0;
+	count = 0;
+	if (n == 0)
+		return (write(fd, "0", 1));
+	while (n > 0)
 	{
-		if (*str >= 'a' && *str <= 'f')
-			*str -= 32;
-		str++;
+		buffer[i++] = '0' + (n % 10);
+		n /= 10;
 	}
+	while (i--)
+		count += write(fd, &buffer[i], 1);
+	return (count);
 }
 
 int	ft_putnum_hex(unsigned long num, int uppercase)
 {
-	char	*hex_digits;
-	char	buffer[16];
-	int		i;
-	int		count;
+	char		*hex_digits;
+	char		buffer[16];
+	int			i;
+	int			count;
 
-	hex_digits = "0123456789abcdef";
 	if (uppercase)
-		ft_strtoupper(hex_digits);
+		hex_digits = "0123456789ABCDEF";
+	else
+		hex_digits = "0123456789abcdef";
 	i = 0;
 	count = 0;
 	if (num == 0)
@@ -84,15 +106,14 @@ int	handle_format(const char **format, va_list args)
 	else if (**format == 's')
 	{
 		str = va_arg(args, char *);
-		ft_putstr_fd(str, 1);
-		count += ft_strlen(str);
+		count += printstr(str);
 	}
 	else if (**format == 'p')
 		count += ft_print_ptr(va_arg(args, void *));
 	else if (**format == 'd' || **format == 'i' )
 		count += ft_putnbr_fd(va_arg(args, int), 1);
 	else if (**format == 'u')
-		count += ft_putnbr_fd(va_arg(args, unsigned int), 1);
+		count += ft_putunbr_fd(va_arg(args, unsigned int), 1);
 	else if (**format == 'x')
 		count += ft_putnum_hex(va_arg(args, unsigned int), 0);
 	else if (**format == 'X')

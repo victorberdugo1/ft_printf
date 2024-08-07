@@ -6,7 +6,7 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 12:20:41 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/08/06 12:48:00 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/08/07 11:46:07 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,8 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 //get_next_line
 char	*get_next_line(int fd);
+//ft_printf
+void	ft_strtoupper(char *str);
+void	ft_strtolower(char *str);
 
 #endif

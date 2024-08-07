@@ -6,7 +6,7 @@
 /*   By: vberdugo <vberdugo@student.42barcelon      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 14:26:03 by vberdugo          #+#    #+#             */
-/*   Updated: 2024/08/06 16:37:45 by vberdugo         ###   ########.fr       */
+/*   Updated: 2024/08/07 15:24:31 by vberdugo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,7 @@ int main(void)
 	total_verdadero = printf("Hola %s\n", (char *)NULL);
 	printf("El size verdadero es: %d\n\n", total_verdadero);
 	
-	// Pruebas de precisión
+	/*/ Pruebas de precisión
 	ft_printf("Probando %.5d con precisión 5:\n");
 	total_format = ft_printf("Hola %.5d\n", 42);
 	ft_printf("El size es: %d\n", total_format);
@@ -235,12 +235,12 @@ int main(void)
 	total_verdadero = printf("Hola \\n \\t \\r\n");
 	printf("El size verdadero es: %d\n\n", total_verdadero);
 	
-	/*/ Especificadores incorrectos
+	// Especificadores incorrectos
 	ft_printf("Probando especificador incorrecto %%q:\n");
 	total_format = ft_printf("Hola %q\n", 42);
 	ft_printf("El size es: %d\n", total_format);
 	total_verdadero = printf("Hola %q\n", 42);
-	printf("El size verdadero es: %d\n\n", total_verdadero);/*/
+	printf("El size verdadero es: %d\n\n", total_verdadero);*/
 
 	// Combinaciones complejas
 	ft_printf("Probando combinación compleja:\n");
